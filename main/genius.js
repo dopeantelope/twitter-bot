@@ -4,7 +4,6 @@
 
 require('isomorphic-fetch');
 const cheerio = require('cheerio');
-const fs = require('fs');
 
 const { AUTH } = require('../config.json');
 
@@ -19,7 +18,7 @@ const headers = new Headers({
 });
 
 const GENIUS_ARTISTS = {
-    DRAKE: 130
+    REXX_LIFE_RAJ: 328725
 };
 
 const Genius = () => {
@@ -50,7 +49,7 @@ const Genius = () => {
                     const content = $(".Lyrics__Container-sc-1ynbvzw-6").find("br").replaceWith("\n").end().text();
                     const lines = content.split('\n').filter(x => Boolean(x.trim()));
                     
-                    console.log(lines)
+                    console.log(lines.length)
 
                     return lines;
                 })
@@ -65,7 +64,7 @@ const Genius = () => {
                     .slice(index)
                     .findIndex(line => line.includes('[') && line.includes(']'));
                 return [ ...acc, ...array.slice(start_index, end_index) ];
-            });
+            }, []);
         },
         getRandomBarFromLyrics(lyrics = []) {
             const pair_bar_indexes = [

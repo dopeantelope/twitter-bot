@@ -28,7 +28,7 @@ logger.info('=== START ===');
 
 async function start() {
     try {
-        const songs = await genius.getSongsByArtistId(GENIUS_ARTISTS.DRAKE);
+        const songs = await genius.getSongsByArtistId(GENIUS_ARTISTS.REXX_LIFE_RAJ);
 
         if (!songs || !songs.length) { retry('songs'); return; }
 
@@ -45,7 +45,7 @@ async function start() {
         const { primary_artist = {}, featured_artists = [], fact_track: { external_url } = {} } = full_song;
 
         const artist = [ ...featured_artists, primary_artist ]
-                .find(({ id }) => id === GENIUS_ARTISTS.DRAKE);
+                .find(({ id }) => id === GENIUS_ARTISTS.REXX_LIFE_RAJ);
 
         const lyrics = await genius.getLyricsBySong(full_song)
 
