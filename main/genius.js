@@ -47,15 +47,10 @@ const Genius = () => {
 
             return fetchDOM(url)
                 .then($ => {
-                    const content = $('.Lyrics__Container-sc-1ynbvzw-6').text();
+                    const content = $(".Lyrics__Container-sc-1ynbvzw-6").find("br").replaceWith("\n").end().text();
                     const lines = content.split('\n').filter(x => Boolean(x.trim()));
-                    console.log(typeof lines)
                     
-                    fs.writeFile('lyrics.txt', lines.toString(), function (err) {
-                        if (err) throw err;
-                        console.log('Saved!');
-                      });
-                    
+                    console.log(lines)
 
                     return lines;
                 })
@@ -69,9 +64,8 @@ const Genius = () => {
                 const end_index = index + array
                     .slice(index)
                     .findIndex(line => line.includes('[') && line.includes(']'));
-                console.log(index)
                 return [ ...acc, ...array.slice(start_index, end_index) ];
-            }, []);
+            });
         },
         getRandomBarFromLyrics(lyrics = []) {
             const pair_bar_indexes = [
