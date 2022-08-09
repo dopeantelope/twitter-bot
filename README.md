@@ -19,9 +19,9 @@ Further optimizations would include Tweeting a Spotify link if there is one avai
 
 ## Lessons Learned:
 
-- [x] Learnt how to use CronJob to automate processes
-- [x] Learnt a lot about using Postman as I used it a lot when working with the Genius API
 - [x] How the Twitter API works
+- [x] Learnt how to use CronJob to automate processes
 - [x] That using a logger such as Winston is super helpful when using Node
-- [x] Learnt how to scrape from a webpage using Cheerio and to use regex to replace <br> tags with \n to handle text easier
+- [x] Grew more confident using Postman as I used it a lot when working with the Genius API
+- [x] Learnt how to scrape from a webpage using Cheerio and to use regex to replace break tags with \n to handle text easier
 
