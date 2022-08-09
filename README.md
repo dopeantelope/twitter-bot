@@ -3,7 +3,7 @@ A Twitter bot that tweets Rexx Life Raj lyrics daily using Twitter and Genius AP
 
 **Link to project:** https://twitter.com/RexxLifeBot
 
-![Alt Text](https://i.ibb.co/7yVPPLF/Screenshot-2022-08-09-at-16-06-36.png)
+![Alt Text](https://i.ibb.co/VDs5rvK/Screenshot-2022-08-09-at-18-56-03.png)
 
 ## How It's Made:
 
