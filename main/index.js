@@ -47,13 +47,13 @@ async function start() {
         const artist = [ ...featured_artists, primary_artist ]
                 .find(({ id }) => id === GENIUS_ARTISTS.REXX_LIFE_RAJ);
 
-        const lyrics = await genius.getLyricsBySong(full_song)
+        const numberOfArtists = full_song.featured_artists.length
 
+        const lyrics = await genius.getLyricsBySong(full_song)
 
         if (!lyrics) { retry('lyrics'); return; }
 
-        const artist_lyrics = genius.filterLyricsByArtist(lyrics, artist);
-        console.log(artist_lyrics)
+        const artist_lyrics = genius.filterLyricsByArtist(lyrics, artist, numberOfArtists);
         const [ first_line, second_line ] = genius.getRandomBarFromLyrics(artist_lyrics);
 
         const tweet = first_line && second_line ? `${ first_line }\n${ second_line }\n${ external_url || '' }` : undefined;

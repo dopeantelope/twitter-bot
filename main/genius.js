@@ -7,8 +7,10 @@ const cheerio = require('cheerio');
 
 const { AUTH } = require('../config.json');
 
+const pageNumber = Math.floor(Math.random() * 4) + 1
+
 const apis = {
-    songs_by_artist: 'https://api.genius.com/artists/{artist}/songs?sort=popularity&page=1&per_page=50',
+    songs_by_artist: `https://api.genius.com/artists/{artist}/songs?sort=popularity&page=${pageNumber}&per_page=50`,
     song_by_id: 'https://api.genius.com/songs/{id}'
 };
 
@@ -26,7 +28,8 @@ const Genius = () => {
         async getSongsByArtistId(id) {
             if (!id) { return []; }
 
-            const url = apis.songs_by_artist.replace('{artist}', id);
+            const url = apis.songs_by_artist.replace('{artist}', id)
+            console.log(`page number: ${pageNumber}`)
 
             return fetchJSON(url, { headers })
                 .then(({ response: { songs = [] } }) => songs);
@@ -48,22 +51,30 @@ const Genius = () => {
                 .then($ => {
                     const content = $(".Lyrics__Container-sc-1ynbvzw-6").find("br").replaceWith("\n").end().text();
                     const lines = content.split('\n').filter(x => Boolean(x.trim()));
-                    
-                    // console.log(lines)
 
                     return lines;
                 })
                 
         },
-        filterLyricsByArtist(lyrics = [], { name = '' } = {}) {
+        filterLyricsByArtist(lyrics = [], { name = '' } = {}, numberOfArtists) {
             return lyrics.reduce((acc, line, index, array) => {
-                if (!line.includes(name)) { return acc; }
 
-                const start_index = ++index;
-                const end_index = index + array
-                    .slice(index)
-                    .findIndex(line => line.includes('[') && line.includes(']'));
-                return [ ...acc, ...array.slice(start_index, end_index) ];
+                if (numberOfArtists > 0) {
+                    if (!line.includes(name)) { return acc; }
+
+                    const start_index = ++index;
+                    const end_index = index + array
+                        .slice(index)
+                        .findIndex(line => line.includes('[') && line.includes(']'));
+                    return [ ...acc, ...array.slice(start_index, end_index) ];
+                }
+                else {
+                    const start_index = ++index;
+                    const end_index = index + array
+                        .slice(index)
+                        .findIndex(line => line.includes('[') && line.includes(']'));
+                    return [ ...acc, ...array.slice(start_index, end_index) ];  
+                }
             }, []);
         },
         getRandomBarFromLyrics(lyrics = []) {
