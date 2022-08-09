@@ -7,6 +7,8 @@ const logger = require('./logger');
 const { Genius, GENIUS_ARTISTS } = require('./genius');
 const { AUTH, MAX_RETRY_COUNT } = require('../config.json');
 
+const CronJob = require("cron").CronJob;
+
 const genius = Genius();
 const twitter = new Twitter(AUTH.Twitter);
 
@@ -73,4 +75,9 @@ async function start() {
     }
 }
 
-start();
+const job = new CronJob("* 0 * * *", () => {
+    console.log('cron job starting!')
+    start()
+})
+
+job.start();

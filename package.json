@@ -4,7 +4,6 @@
   "description": "A bot that Tweets out daily Rexx Life Raj lyrics.",
   "main": "main/index.js",
   "scripts": {
-    "start": "node main/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,6 +14,7 @@
   "homepage": "https://github.com/ibarsi/drizzle/blob/master/README.md",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "cron": "^2.1.0",
     "isomorphic-fetch": "^3.0.0",
     "twit": "2.2.5",
     "winston": "2.3.1"
