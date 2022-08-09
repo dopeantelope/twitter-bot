@@ -1,9 +1,9 @@
-# My Awesome Project
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
+# RexxLifeBot
+A Twitter bot that tweets Rexx Life Raj lyrics daily using Twitter and Genius API's.
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://twitter.com/RexxLifeBot
 
-![alt tag](http://placecorgi.com/1200/650)
+![Image of a tweet composed by the RexxLifeBot](https://ibb.co/KqPJftY)
 
 ## How It's Made:
 
