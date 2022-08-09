@@ -4,6 +4,7 @@
   "description": "A bot that Tweets out daily Rexx Life Raj lyrics.",
   "main": "main/index.js",
   "scripts": {
+    "start": "node main/index.js"
   },
   "repository": {
     "type": "git",
