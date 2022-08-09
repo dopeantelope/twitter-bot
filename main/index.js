@@ -19,7 +19,7 @@ const retry = (() => {
             return;
         }
 
-        logger.info(`WARN - Failed to Tweet Drake lyrics at ${ stage } stage. Retrying ${ ++counter } time(s)...`);
+        logger.info(`WARN - Failed to Tweet Rexx lyrics at ${ stage } stage. Retrying ${ ++counter } time(s)...`);
         start();
     };
 })();
@@ -53,6 +53,7 @@ async function start() {
         if (!lyrics) { retry('lyrics'); return; }
 
         const artist_lyrics = genius.filterLyricsByArtist(lyrics, artist);
+        console.log(artist_lyrics)
         const [ first_line, second_line ] = genius.getRandomBarFromLyrics(artist_lyrics);
 
         const tweet = first_line && second_line ? `${ first_line }\n${ second_line }\n${ external_url || '' }` : undefined;

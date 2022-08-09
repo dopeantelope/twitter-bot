@@ -1,5 +1,5 @@
 {
-  "name": "RexxLifeBot",
+  "name": "rexxlifebot",
   "version": "1.2.0",
   "description": "A bot that Tweets out daily Rexx Life Raj lyrics.",
   "main": "main/index.js",

@@ -49,7 +49,7 @@ const Genius = () => {
                     const content = $(".Lyrics__Container-sc-1ynbvzw-6").find("br").replaceWith("\n").end().text();
                     const lines = content.split('\n').filter(x => Boolean(x.trim()));
                     
-                    console.log(lines.length)
+                    // console.log(lines)
 
                     return lines;
                 })
