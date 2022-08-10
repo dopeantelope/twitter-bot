@@ -75,7 +75,14 @@ async function start() {
     }
 }
 
-const job = new CronJob("* 0 * * *", () => {
+const http = require('http');
+
+setInterval(() => {
+  http.get("http://example.herokuapp.com");
+}, 25 * 60 * 1000); // every 25 minutes
+
+
+const job = new CronJob("* 10 * * *", () => {
     console.log('cron job starting!')
     start()
 })
