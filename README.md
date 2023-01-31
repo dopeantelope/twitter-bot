@@ -12,7 +12,7 @@ A Node.js app using the Twitter and Genius API to Tweet random lyrics of artist 
 
 ## Optimizations
 
-Further optimizations would include Tweeting a Spotify link if there is one available for the song. If there is not one available then potentially including a YouTube link.
+Further optimizations would include tweeting a Spotify link if there is one available for the song. If there is not one available then potentially including a YouTube link.
 
 
 ## Lessons Learned:
